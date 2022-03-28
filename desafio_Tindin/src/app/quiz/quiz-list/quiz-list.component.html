@@ -27,30 +27,27 @@
 
       <div class="card-body " [hidden]="loading || itens.length == 0">
 
-
           <table class="table table-striped">
               <thead>
                   <tr >
                       <th>Descrição</th>
+                      <th>Tipo</th>
+                      <th>Nível</th>
                       <th>Ações</th>
                   </tr>
               </thead>
               <tbody>
                   <tr *ngFor="let item of itens ">
-
                       <td>{{item.description}}</td>
+                      <td>{{item.type}}</td>
+                      <td>{{item.level}}</td>
                       <td>
                           <button type="button" [routerLink]="['view', item._id]" class="btn btn-xs btn-outline-info">Editar</button>
                           <button type="button" (click)="delete(item._id)" class="btn btn-xs btn-outline-danger">Excluir</button>
                       </td>
                   </tr>
-
               </tbody>
           </table>
-
-
       </div>
   </div>
-
-
 </div>

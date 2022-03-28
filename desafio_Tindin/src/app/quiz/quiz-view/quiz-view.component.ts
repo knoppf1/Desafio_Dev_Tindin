@@ -22,7 +22,7 @@ export class QuizViewComponent implements OnInit {
   submitted: boolean = false;
   loading: boolean = false;
   frmForm: FormGroup;
-  idEmpresa : number = 0;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -58,9 +58,9 @@ export class QuizViewComponent implements OnInit {
   createForm(): FormGroup {
     return this.fb.group({
      _id : [this._id, Validators.required ],
-     idEmpresa : [this.idEmpresa, Validators.required],
-     nome : ['',Validators.required],
-     ativo : [true, Validators.required]
+     description : ['',Validators.required],
+     type : ['',Validators.required],
+     level : ['',Validators.required],
 
     });
 

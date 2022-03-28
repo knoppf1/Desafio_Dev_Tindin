@@ -19,8 +19,6 @@ export class QuizListComponent implements OnInit {
   _id: any =[];
 
 
-
-
   constructor(
     private quizService : QuizService,
     private toastr : ToastrService,
@@ -29,7 +27,6 @@ export class QuizListComponent implements OnInit {
   ngOnInit(): void {
     this.load();
   }
-
 
   load(){
     this.loading = true;
