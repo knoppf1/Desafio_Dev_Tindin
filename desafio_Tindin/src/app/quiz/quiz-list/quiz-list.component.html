@@ -1,0 +1,56 @@
+<div class="container-fluid flex-grow-1 container-p-y">
+
+  <!-- <div class="text-muted small mt-0 mb-4 d-block breadcrumb">
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a [routerLink]="['']"><i class="feather icon-home"></i></a></li>
+          <li class="breadcrumb-item">{{nome_tela}}</li>
+          <li class="breadcrumb-item active">{{nome_etapa}}</li>
+      </ol>
+  </div> -->
+
+  <div class="card mb-4 mt-4">
+      <h6 class="card-header">Listagem de Dados  </h6>
+      <div class="row px-4 mt-3">
+          <div class="col-4 text-right">
+              <a type="button" [routerLink]="['view']" class="btn btn-xs btn-outline-primary mt-3">Novo</a>
+          </div>
+      </div>
+
+      <div class="card-body" *ngIf="loading">
+          <div class="row text-center">
+              <div class="col" style="padding: 20px 0;">
+                  <img src="assets/img/gif/load.gif" alt="">
+                  <p class="titulo-load-carregando">Carregando... Aguarde</p>
+              </div>
+          </div>
+        </div>
+
+      <div class="card-body " [hidden]="loading || itens.length == 0">
+
+
+          <table class="table table-striped">
+              <thead>
+                  <tr >
+                      <th>Descrição</th>
+                      <th>Ações</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of itens ">
+
+                      <td>{{item.description}}</td>
+                      <td>
+                          <button type="button" [routerLink]="['view', item._id]" class="btn btn-xs btn-outline-info">Editar</button>
+                          <button type="button" (click)="delete(item._id)" class="btn btn-xs btn-outline-danger">Excluir</button>
+                      </td>
+                  </tr>
+
+              </tbody>
+          </table>
+
+
+      </div>
+  </div>
+
+
+</div>

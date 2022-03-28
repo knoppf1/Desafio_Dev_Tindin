@@ -1,0 +1,54 @@
+<div class="container-fluid flex-grow-1 container-p-y">
+
+  <div class="text-muted small mt-0 mb-4 d-block breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/appcore/dashboard']"><i
+            class="feather icon-home"></i></a></li>
+      <li class="breadcrumb-item" [routerLink]="['/appcore/despesa']">{{nome_tela}}</li>
+      <li class="breadcrumb-item active">{{nome_etapa}}</li>
+    </ol>
+  </div>
+
+  <div class="card mb-4">
+    <h6 class="card-header" *ngIf="_id==' '"> Novo Registro </h6>
+    <h6 class="card-header" *ngIf="_id!=' '"> Editar Registro
+      <div class="col-3 float-right">
+        <a type="button" [routerLink]="['/appcore/despesa/view']" class="btn btn-xs
+          btn-outline-primary">Novo</a>
+      </div>
+    </h6>
+    <div class="card-body" *ngIf="loading">
+      <div class="row text-center">
+        <div class="col" style="padding: 20px 0;">
+          <img src="assets/img/gif/load.gif" alt="">
+          <p class="titulo-load-carregando">Carregando... Aguarde</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-body" [formGroup]="frmForm" [hidden]="loading">
+
+      <div class="form-row">
+
+        <div class="form-group col-md-12 col-sm-12">
+          <label class="form-label">Nome</label>
+          <input type="text" class="form-control" id="nome"
+            formControlName="nome"  #nome (keyup.enter)="save($event)" autofocus="true">
+
+          <div class="clearfix"></div>
+        </div>
+
+
+
+
+        <div class="form-group col-md-12 col-sm-12 mt-4">
+          <button type="submit" class="btn btn-primary" (click)="save($event)">Salvar</button>
+          <a tabindex="0" [routerLink]="['/quiz']" class="btn
+            btn-outline-secondary">Voltar</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
