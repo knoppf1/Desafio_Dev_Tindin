@@ -42,18 +42,18 @@ export class QuizListComponent implements OnInit {
   }
 
 
-  delete(_id: any){}
 
-  // delete(_id) {
-  //   if(confirm('Você deseja excluir o resgitro?')){
-  //     this.quizService.delete(_id).subscribe(res =>{
-  //       this.toastr.success(null,'DELETADO COM SUCESSO');
-  //       this.load();
-  //     }, err => {
-  //       this.toastr.error(err,'ERRO AO DELETAR');
-  //     });
 
-  //   }
-  // }
+  delete(_id: string) {
+    if(confirm('Você deseja excluir o resgitro?')){
+      this.quizService.delete(_id).subscribe(res =>{
+        this.toastr.success('','DELETADO COM SUCESSO');
+        this.load();
+      }, err => {
+        this.toastr.error(err,'ERRO AO DELETAR');
+      });
+
+    }
+  }
 
 }

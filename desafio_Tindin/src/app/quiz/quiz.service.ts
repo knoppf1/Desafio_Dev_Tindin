@@ -18,7 +18,7 @@ export class QuizService {
     console.log('Team', team)
     let params = new HttpParams();
     params = params.append('team', team);
-    return this.http.get(this.apiUrl , { params: params } );
+    return this.http.get(this.apiUrl, { params: params } );
   }
 
   adicionar(data: any): Observable<any> {

@@ -12,7 +12,7 @@ import { QuizService } from './../quiz.service';
 })
 export class QuizViewComponent implements OnInit {
 
-  _id: string= "";
+  _id: any= "";
   nome_tela = "Quizzes";
   nome_etapa = "View";
   dados: any;
@@ -33,7 +33,8 @@ export class QuizViewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this._id = +this.route.snapshot.paramMap.get('_id');
+    this._id = +this.route.snapshot.paramMap.get('_id')!;
+
 
     this.frmForm = this.createForm();
     if(this._id == ""){
@@ -64,15 +65,17 @@ export class QuizViewComponent implements OnInit {
 
     });
 
-    // get f() {
+
+ }
+
+ // get f() {
     //   return this.frmForm.controls;
     // }
 
-    // edit(): {
-    //   this.editing = true;
-    //   this.submitted = false;
-    // }
- }
+  edit() {
+    this.editing = true;
+    this.submitted = false;
+  }
 
  save($event: { preventDefault: () => void; }) {
   this.submitted = true;
@@ -108,7 +111,5 @@ export class QuizViewComponent implements OnInit {
 }
 
 }
-function edit() {
-  throw new Error('Function not implemented.');
-}
+
 
